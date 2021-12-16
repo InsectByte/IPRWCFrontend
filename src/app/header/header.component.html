@@ -1,0 +1,28 @@
+<div class="header-2">
+  <nav class="bg-white py-2 md:py-4">
+    <div class="container px-4 mx-auto md:flex md:items-center">
+      <div class="flex justify-between items-center">
+        <a class="font-bold text-xl text-green-400 pointer" routerLink="/home">Emerald Hosting</a>
+        <button class="border border-solid border-gray-600 px-3 py-1 rounded text-gray-600 opacity-50 hover:opacity-75 md:hidden" (click)="toggleMenu(collapse)">
+          <svg class="w-6 h-6 text-gray-700" *ngIf="!showMenu" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+            <path d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+          <svg class="w-6 h-6 text-gray-700" *ngIf="showMenu" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="hidden md:flex flex-col md:flex-row md:ml-auto mt-3 md:mt-0" id="navbar-collapse" #collapse>
+        <a class="p-2 lg:px-4 md:mx-2 text-white rounded bg-green-400 pointer" routerLink="/home">Home</a>
+        <a class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300 pointer"
+           routerLink="/about">About</a>
+        <a class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300 pointer"
+           routerLink="/plans">Plans</a>
+        <a class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300 pointer"
+           routerLink="/contact">Contact</a>
+        <a class="pointer p-2 lg:px-4 md:mx-2 text-green-400 text-center border border-transparent rounded hover:bg-green-100 hover:text-green-500 transition-colors duration-300">Login</a>
+        <a class="pointer p-2 lg:px-4 md:mx-2 text-green-400 text-center border border-solid border-green-400 rounded hover:bg-green-400 hover:text-white transition-colors duration-300 mt-1 md:mt-0 md:ml-1">Signup</a>
+      </div>
+    </div>
+  </nav>
+</div>
