@@ -7,6 +7,9 @@ export const environment = {
   serverurl: 'http://localhost:8080',
   endpoints: {
     plans: "/plans",
+    user: "/user",
+    geo: "/geo",
+    auth: "/auth"
   }
 };
 

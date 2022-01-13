@@ -10,15 +10,19 @@ import {MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule} from "@angular/materia
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
-import {SnackbarService} from "./shared/snackbar.service";
+import {SnackbarService} from "./shared/Snackbar/snackbar.service";
 import {HeaderModule} from "./header/header.module";
 import {FooterModule} from "./footer/footer.module";
 import {PlansModule} from "./plans/plans.module";
 import {HttpClientModule} from "@angular/common/http";
+import { SignupModule } from './signup/signup.module';
+import {LoginModule} from "./login/login.module";
+import { AccountComponent } from './account/account.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AccountComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +38,9 @@ import {HttpClientModule} from "@angular/common/http";
     FooterModule,
     PlansModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SignupModule,
+    LoginModule
   ],
   providers: [ {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 2500}},
     {provide: SnackbarService}],

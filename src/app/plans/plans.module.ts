@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PlansComponent } from './plans.component';
 import { PlanslistComponent } from './planslist/planslist.component';
 import { PlanslistItemComponent } from './planslist/planslist-item/planslist-item.component';
-import {PlansService} from "../shared/plans.service";
+import {PlansService} from "../shared/Plan/plans.service";
 
 
 

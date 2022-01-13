@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Plan} from "../../shared/plan.model";
-import {PlansService} from "../../shared/plans.service";
+import {Plan} from "../../shared/Plan/plan.model";
+import {PlansService} from "../../shared/Plan/plans.service";
 
 @Component({
   selector: 'app-planslist',
@@ -20,7 +20,8 @@ export class PlanslistComponent implements OnInit {
       }
     });
   }
-  logPlans() {
-    console.log(this.plans);
+
+  ngOnDestroy() {
+    this.planService.getResults().unsubscribe();
   }
 }

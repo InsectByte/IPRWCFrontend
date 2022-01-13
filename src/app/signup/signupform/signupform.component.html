@@ -1,0 +1,87 @@
+<div>
+  <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+        #f=ngForm (ngSubmit)="submit(f)">
+    <div class="mb-6">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
+        Username
+      </label>
+      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" placeholder="Name"
+             ngModel required #name=ngModel name="name">
+      <p class="text-red-500 text-xs italic" *ngIf="!name.valid && name.touched">Please enter your name.</p>
+    </div>
+    <div class="mb-6">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="fname">
+        Full Name
+      </label>
+      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="fname" type="text" placeholder="John Doe"
+             ngModel required #fname=ngModel name="fname">
+      <p class="text-red-500 text-xs italic" *ngIf="!fname.valid && fname.touched">Please enter your Full Name.</p>
+    </div>
+    <div class="mb-6">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+        E-mail
+      </label>
+      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" placeholder="Email Adress"
+             ngModel required email #email=ngModel name="email">
+      <p class="text-red-500 text-xs italic" *ngIf="!email.valid && email.touched">Please enter a valid email.</p>
+    </div>
+    <div class="mb-6">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="postalcode">
+        Postal Code
+      </label>
+      <input ngModel required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+             id="postalcode" placeholder="1234 AB, 12345" #pc=ngModel name="postalcode" (focusout)="getGeoLocations(pc.value)">
+      <p class="text-red-500 text-xs italic" *ngIf="!pc.valid && pc.touched">Please enter a postalcode.</p>
+    </div>
+    <div class="mb-6">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="housenumber">
+        House Number
+      </label>
+      <input ngModel required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+             type="number" id="housenumber" placeholder="1" #hn=ngModel name="housenumber" (focusout)="getGeoLocations(pc.value)">
+      <p class="text-red-500 text-xs italic" *ngIf="!hn.valid && hn.touched">Please enter a house number.</p>
+    </div>
+    <div class="mb-6">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="address">
+        Address
+      </label>
+      <select ngModel required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+             id="address" #pc=ngModel name="address" placeholder="Click for options (based on postal)">
+        <option *ngFor="let geo of geos" [ngValue]="geo">{{geo.name}}, {{geo.adminName1}}, {{geo.countrycode}}</option>
+      </select>
+      <p class="text-red-500 text-xs italic" *ngIf="!pc.valid && pc.touched">Please enter a postalcode.</p>
+    </div>
+    <div class="mb-6">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="birthdate">
+        Birthdate
+      </label>
+      <input ngModel required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+             id="birthdate" placeholder="1234 AB, 12345" #bd=ngModel name="birthdate" (focusout)="getGeoLocations(pc.value)" type="date">
+      <p class="text-red-500 text-xs italic" *ngIf="!bd.valid && bd.touched">Please enter a birthdate.</p>
+    </div>
+    <div class="mb-6">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+        Password
+      </label>
+      <input ngModel required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+             id="password" type="password" placeholder="******************" #pw=ngModel name="password">
+      <p class="text-red-500 text-xs italic" *ngIf="!pw.valid && pw.touched">Please choose a password.</p>
+    </div>
+    <div class="mb-6">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+        Confirm Password
+      </label>
+      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+             id="cpassword" type="password" placeholder="******************" ngModel required #cpw=ngModel name="cpassword">
+      <p class="text-red-500 text-xs italic" *ngIf="!cpw.valid && cpw.touched">Please confirm your password.</p>
+      <p class="text-red-500 text-xs italic" *ngIf="cpw.touched && pw.touched && pw.value != cpw.value">Passwords do not match.</p>
+    </div>
+    <div class="flex items-center justify-between">
+      <button class="bg-green-400 text-white bg-transparent border border-green-400 hover:bg-white hover:border-green-500 hover:text-green-600 focus-within:bg-green-500 focus-within:border-green-500 focus-within:text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              [ngClass]="{'disabled-btn': !f.valid}"
+              type="submit" [disabled]="!f.valid">
+        Sign Up
+      </button>
+    </div>
+  </form>
+</div>

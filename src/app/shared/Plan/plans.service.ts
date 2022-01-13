@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Plan} from "./plan.model";
 import {HttpClient} from "@angular/common/http";
-import {environment} from "../../environments/environment";
+import {environment} from "../../../environments/environment";
 import {BehaviorSubject} from "rxjs";
 
 @Injectable({
@@ -18,10 +18,11 @@ export class PlansService {
   }
 
   getPlans(): void {
-    this.http.get(this.URL).subscribe(
-      (response: any) => {
+    this.http.get(this.URL, {observe: 'response'}).subscribe(
+      (response) => {
+        // console.log(response);
         // @ts-ignore
-        response.forEach((element) => {
+        response.forEach(element => {
           this.cachedPlans.push(
             new Plan(
               element['id'],
@@ -32,11 +33,10 @@ export class PlansService {
               element['ramAmount'],
               element['storageAmount'],
               element['price'])
-          )
+          );
         })
       }
     )
-    console.log(this.cachedPlans)
     this.plansSubject.next(this.cachedPlans)
   }
   getResults(): BehaviorSubject<any> {

@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Plan} from "../../../shared/plan.model";
+import {Plan} from "../../../shared/Plan/plan.model";
 
 @Component({
   selector: 'app-planslist-item',
