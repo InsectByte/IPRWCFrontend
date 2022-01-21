@@ -38,7 +38,6 @@ export class ShoppingcartService {
   addToCart(plan : Plan) : void {
     if(this._userService.getJwt() != "" && this._userService.getJwt() != null) {
       let headers = new HttpHeaders().set("Authorization", "Bearer " + this._userService.getJwt());
-      console.log(plan.id)
       this._http.post(this._url + "/add", {
         "productId": plan.id,
         "quantity": 1

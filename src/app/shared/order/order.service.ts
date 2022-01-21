@@ -5,6 +5,7 @@ import {environment} from "../../../environments/environment";
 import {BehaviorSubject} from "rxjs";
 import {UserService} from "../User/user.service";
 import {Order} from "./order.model";
+import {isElementScrolledOutsideView} from "@angular/cdk/overlay/position/scroll-clip";
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,6 @@ export class OrderService {
   private _orderSub : BehaviorSubject<any> = new BehaviorSubject<any>(undefined);
 
   constructor(private _http : HttpClient, private _snackbar : SnackbarService, private _userService: UserService) {
-    this.getOrders()
   }
 
   getOrders(): void {

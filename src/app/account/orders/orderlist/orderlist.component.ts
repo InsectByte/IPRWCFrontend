@@ -16,6 +16,7 @@ export class OrderlistComponent implements OnInit, OnDestroy {
   constructor(private _orderService : OrderService) { }
 
   ngOnInit(): void {
+    this._orderService.getOrders();
     this._orderSub = this._orderService.getOrderSub().subscribe( (orders : Order[]) => {
       this.orders = orders;
     })

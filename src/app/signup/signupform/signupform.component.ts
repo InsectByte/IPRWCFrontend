@@ -33,10 +33,6 @@ export class SignupformComponent implements OnInit {
     this._geoSub.unsubscribe();
   }
 
-  debug(valid: any) {
-    console.log(valid)
-  }
-
   submit(f: NgForm) {
     if (!f.valid) return;
     let username : string = f.value.name;
