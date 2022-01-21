@@ -36,14 +36,16 @@ $iprwc-webshop-theme: mat.define-light-theme((
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-html { scroll-behavior: smooth;}
+html {
+  scroll-behavior: smooth;
+}
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .pointer:hover {
   cursor: pointer;
 }
 .cta{
-  background-image: url(http://localhost:4200/assets/background.gif);
+  background-image: url(https://iprwc.insectbyte.com/assets/background.gif);
   background-size: cover;
 }
 .snack-affirmative{
@@ -60,4 +62,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   color: #721c24;
   background-color: #f8d7da;
   border-color: #f5c6cb;
+}
+
+.disabled-btn {
+  filter: grayscale(80%);
+  cursor: not-allowed;
 }

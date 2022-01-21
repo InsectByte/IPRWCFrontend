@@ -13,11 +13,12 @@ import {UserService} from "../../shared/User/user.service";
 export class SignupformComponent implements OnInit {
 
   public geos : Geo[] = [];
+  private _geoSub : Subscription = new Subscription();
 
   constructor(private _geoService : GeoService, private _userService : UserService) { }
 
   ngOnInit(): void {
-    this._geoService.getResults().subscribe((geos) => {
+    this._geoSub = this._geoService.getResults().subscribe((geos) => {
       if (geos) {
         this.geos = geos;
       }
@@ -29,7 +30,7 @@ export class SignupformComponent implements OnInit {
   }
 
   ngOnDestroy () {
-    this._geoService.getResults().unsubscribe();
+    this._geoSub.unsubscribe();
   }
 
   debug(valid: any) {

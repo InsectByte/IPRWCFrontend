@@ -33,7 +33,8 @@
       {{plan.storageAmount}} GB's NVME Storage
     </li>
   </ul>
-  <button class="inline-flex justify-center w-full px-4 py-3 mt-8 font-sans text-sm leading-none text-center text-green-500 no-underline bg-transparent border border-green-500 rounded-md cursor-pointer hover:bg-green-400 hover:border-green-500 hover:text-white focus-within:bg-blue-700 focus-within:border-blue-700 focus-within:text-white sm:text-base md:text-lg">
+  <button class="inline-flex justify-center w-full px-4 py-3 mt-8 font-sans text-sm leading-none text-center text-green-500 no-underline bg-transparent border border-green-500 rounded-md cursor-pointer hover:bg-green-400 hover:border-green-500 hover:text-white focus-within:text-white sm:text-base md:text-lg"
+  (click)="onAddToCart()">
     Add to Cart
   </button>
 </div>
@@ -74,7 +75,8 @@
       {{plan.storageAmount}} GB's NVME Storage
     </li>
   </ul>
-  <button class="inline-flex justify-center w-full px-4 py-3 mt-8 font-sans text-sm leading-none text-center bg-green-400 text-white no-underline bg-transparent border border-green-400 rounded-md cursor-pointer hover:bg-white hover:border-green-500 hover:text-green-600 focus-within:bg-green-500 focus-within:border-green-500 focus-within:text-white sm:text-base md:text-lg">
+  <button class="inline-flex justify-center w-full px-4 py-3 mt-8 font-sans text-sm leading-none text-center bg-green-400 text-white no-underline bg-transparent border border-green-400 rounded-md cursor-pointer hover:bg-white hover:border-green-500 hover:text-green-600 focus-within:bg-green-500 focus-within:border-green-500 focus-within:text-white sm:text-base md:text-lg"
+          (click)="onAddToCart()">
     Add to Cart
   </button>
 </div>

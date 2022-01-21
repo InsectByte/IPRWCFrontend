@@ -1,0 +1,30 @@
+<table class="w-full text-sm lg:text-base" cellspacing="0">
+  <thead>
+  <tr class="h-12 uppercase">
+    <th class="hidden md:table-cell text-center">ID</th>
+    <th class="text-center">Name</th>
+    <th class="text-center">Order Date</th>
+    <th class="text-center"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let order of orders">
+    <td class="hidden md:table-cell text-center">
+      <p class="mb-2 md:ml-4">{{order.id}}</p>
+    </td>
+    <td>
+          <p class="mb-2 md:ml-4">{{order.plan.name}}</p>
+    </td>
+    <td class="text-center">
+      <p class="mb-2 md:ml-4">
+        {{order.created_at.toString().substr(0,10)}}
+      </p>
+    </td>
+    <td class="text-center">
+      <a class="text-sm lg:text-base font-medium text-blue-600 hover:text-blue-700 pointer">
+        Go To Panel >
+      </a>
+    </td>
+  </tr>
+  </tbody>
+</table>

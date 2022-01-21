@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from "@angular/forms";
+import {SnackbarService} from "../shared/Snackbar/snackbar.service";
 
 @Component({
   selector: 'app-contact',
@@ -8,12 +9,13 @@ import {NgForm} from "@angular/forms";
 })
 export class ContactComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _snackbar : SnackbarService) { }
 
   ngOnInit(): void {
   }
 
-  onSubmit() {
-
+    onSubmit(f: NgForm) {
+      this._snackbar.affirmativeSnackbar("Support ticker submitted", "")
+      f.reset();
   }
 }

@@ -1,1 +1,38 @@
-<p>shoppingcart-list works!</p>
+<table class="w-full text-sm lg:text-base" cellspacing="0">
+  <thead>
+  <tr class="h-12 uppercase">
+    <th class="text-center">Product</th>
+    <th class="text-center">Quantity</th>
+    <th class="hidden md:table-cell text-center">Unit price</th>
+    <th class="text-center">Total price</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let cartItem of cartItems">
+    <td>
+      <p class="mb-2 md:ml-4">{{cartItem.plan.name}}</p>
+      <button (click)="removeFromCart(cartItem)" type="submit" class="text-gray-700 md:ml-4">
+        <small>(Remove item)</small>
+      </button>
+    </td>
+    <td class="justify-center md:justify-center md:flex mt-6">
+      <div class="w-20 h-10">
+        <div class="relative flex flex-row w-full h-8">
+          <input type="number" [value]="cartItem.quantity" (change)="updateQuantity(cartItem, qt.value)" #qt
+                 class="w-full font-semibold text-center text-gray-700 bg-gray-200 outline-none focus:outline-none hover:text-black focus:text-black" />
+        </div>
+      </div>
+    </td>
+    <td class="text-center hidden md:table-cell">
+              <span class="text-sm lg:text-base font-medium">
+                {{cartItem.plan.price}}
+              </span>
+    </td>
+    <td class="text-center">
+              <span class="text-sm lg:text-base font-medium">
+                {{cartItem.plan.price * cartItem.quantity}}
+              </span>
+    </td>
+  </tr>
+  </tbody>
+</table>

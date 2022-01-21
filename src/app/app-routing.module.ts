@@ -7,6 +7,9 @@ import { ContactComponent } from './contact/contact.component';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import {AccountComponent} from "./account/account.component";
+import {DetailsComponent} from "./account/details/details.component";
+import {OrdersComponent} from "./account/orders/orders.component";
+import {ShoppingcartComponent} from "./shoppingcart/shoppingcart.component";
 
 const routes: Routes = [
   {path: 'home', component: HomepageComponent},
@@ -15,7 +18,12 @@ const routes: Routes = [
   {path: 'contact', component: ContactComponent},
   {path: 'signup', component: SignupComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'account', component: AccountComponent},
+  {path: 'account', component: AccountComponent, children: [
+      {path: 'details', component: DetailsComponent},
+      {path: 'orders', component: OrdersComponent},
+      {path: '', redirectTo: 'details', pathMatch: 'full'}
+    ]},
+  {path: 'cart', component: ShoppingcartComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'}
 ];
 

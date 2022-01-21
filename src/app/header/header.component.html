@@ -1,4 +1,4 @@
-<div class="header-2">
+<div class="w-full mb-auto">
   <nav class="bg-white py-2 md:py-4">
     <div class="container px-4 mx-auto md:flex md:items-center">
       <div class="flex justify-between items-center">
@@ -14,19 +14,21 @@
         </button>
       </div>
       <div class="hidden md:flex flex-col md:flex-row md:ml-auto mt-3 md:mt-0" id="navbar-collapse" #collapse>
-        <a class="p-2 lg:px-4 md:mx-2 text-white rounded bg-green-400 pointer" routerLink="/home">Home</a>
+        <a class="p-2 lg:px-4 md:mx-2 text-white rounded bg-green-400 pointer" routerLink="/home"><i class="fas fa-home"></i> Home</a>
         <a class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300 pointer"
-           routerLink="/about">About</a>
+           routerLink="/about"><i class="fas fa-users"></i> About</a>
         <a class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300 pointer"
-           routerLink="/plans">Plans</a>
+           routerLink="/plans"><i class="fas fa-tags"></i> Plans</a>
         <a class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300 pointer"
-           routerLink="/contact">Contact</a>
-        <a class="pointer p-2 lg:px-4 md:mx-2 text-green-400 text-center border border-transparent rounded hover:bg-green-100 hover:text-green-500 transition-colors duration-300"
-           routerLink="/login" *ngIf="!loggedIn">Login</a>
-        <a class="pointer p-2 lg:px-4 md:mx-2 text-green-400 text-center border border-solid border-green-400 rounded hover:bg-green-400 hover:text-white transition-colors duration-300 mt-1 md:mt-0 md:ml-1"
-           routerLink="/signup" *ngIf="!loggedIn">Signup</a>
-        <a class="pointer p-2 lg:px-4 md:mx-2 text-green-400 text-center border border-solid border-green-400 rounded hover:bg-green-400 hover:text-white transition-colors duration-300 mt-1 md:mt-0 md:ml-1"
-           routerLink="/account" *ngIf="loggedIn">Account</a>
+           routerLink="/contact"><i class="fas fa-envelope"></i> Contact</a>
+        <a class="p-2 lg:px-4 md:mx-2 border border-solid border-green-400 text-green-400 rounded hover:bg-green-400 hover:text-white transition-colors duration-300 pointer"
+           routerLink="/login" *ngIf="!loggedIn"><i class="fas fa-sign-in-alt"></i> Log In</a>
+        <a class="p-2 lg:px-4 md:mx-2 border border-solid border-green-400 text-green-400 rounded hover:bg-green-400 hover:text-white transition-colors duration-300 pointer"
+           routerLink="/signup" *ngIf="!loggedIn"><i class="fas fa-user-plus"></i> Sign Up</a>
+        <a class="p-2 lg:px-4 md:mx-2 border border-solid border-green-400 text-green-400 rounded hover:bg-green-400 hover:text-white transition-colors duration-300 pointer"
+           routerLink="/account" *ngIf="loggedIn"><i class="fas fa-user"></i> Account</a>
+        <a class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300 pointer"
+           routerLink="/cart" *ngIf="loggedIn"><i class="fas fa-shopping-cart"></i> Cart</a>
       </div>
     </div>
   </nav>

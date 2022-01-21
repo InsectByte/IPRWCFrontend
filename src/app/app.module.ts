@@ -14,15 +14,26 @@ import {SnackbarService} from "./shared/Snackbar/snackbar.service";
 import {HeaderModule} from "./header/header.module";
 import {FooterModule} from "./footer/footer.module";
 import {PlansModule} from "./plans/plans.module";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { SignupModule } from './signup/signup.module';
 import {LoginModule} from "./login/login.module";
 import { AccountComponent } from './account/account.component';
+import { DetailsComponent } from './account/details/details.component';
+import { OrdersComponent } from './account/orders/orders.component';
+import { AccountheaderComponent } from './account/accountheader/accountheader.component';
+import {ShoppingcartModule} from "./shoppingcart/shoppingcart.module";
+import {OrdersModule} from "./account/orders/orders.module";
+import {AuthInterceptorService} from "./shared/auth-interceptor.service";
+import {ContactComponent} from "./contact/contact.component";
+import {ContactModule} from "./contact/contact.module";
 
 @NgModule({
   declarations: [
     AppComponent,
-    AccountComponent
+    AccountComponent,
+    DetailsComponent,
+    OrdersComponent,
+    AccountheaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,10 +51,13 @@ import { AccountComponent } from './account/account.component';
     HttpClientModule,
     ReactiveFormsModule,
     SignupModule,
-    LoginModule
+    LoginModule,
+    ShoppingcartModule,
+    OrdersModule,
+    ContactModule
   ],
   providers: [ {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 2500}},
-    {provide: SnackbarService}],
+    {provide: SnackbarService}, {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

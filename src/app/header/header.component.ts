@@ -15,16 +15,14 @@ export class HeaderComponent implements OnInit, OnDestroy {
   loggedIn : boolean = false;
 
   constructor(private _userService : UserService) {
-    this.loggedInSub = this._userService.getJwt().subscribe(
-      (response: string) => {
-        console.log(response)
-        this.loggedIn = (response != undefined);
-        console.log(this.loggedIn)
-      }
-    )
   }
 
   ngOnInit(): void {
+    this.loggedInSub = this._userService.getJwtSub().subscribe(
+      (response: string) => {
+        this.loggedIn = (response != null && response != "");
+      }
+    )
   }
 
   ngAfterViewInit(): void {

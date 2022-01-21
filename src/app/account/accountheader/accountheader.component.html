@@ -1,0 +1,13 @@
+<div class="bg-white w-full mb-auto static">
+  <nav class="flex flex-col justify-center sm:flex-row">
+    <a routerLink="details" routerLinkActive="border-b-2 font-medium border-green-500" class="text-gray-600 py-4 px-6 block hover:text-green-500 focus:outline-none">
+      Account Details
+    </a>
+    <a routerLink="orders" routerLinkActive="border-b-2 font-medium border-green-500" class="text-gray-600 py-4 px-6 block hover:text-green-500 focus:outline-none">
+      Orders
+    </a>
+    <a routerLinkActive="border-b-2 font-medium border-green-500" class="text-gray-600 py-4 px-6 block hover:text-green-500 focus:outline-none pointer" (click)="signout()">
+      Sign out
+    </a>
+  </nav>
+</div>

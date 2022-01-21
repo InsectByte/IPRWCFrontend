@@ -20,9 +20,9 @@ export class PlansService {
   getPlans(): void {
     this.http.get(this.URL, {observe: 'response'}).subscribe(
       (response) => {
-        // console.log(response);
+        console.log(response);
         // @ts-ignore
-        response.forEach(element => {
+        response.body.forEach(element => {
           this.cachedPlans.push(
             new Plan(
               element['id'],
