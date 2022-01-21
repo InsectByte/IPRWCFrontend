@@ -10,20 +10,16 @@ import {BehaviorSubject} from "rxjs";
 export class PlansService {
 
   private URL : string = environment.serverurl + environment.endpoints.plans;
-
-  cachedPlans: Plan[] = [];
   plansSubject = new BehaviorSubject<any>(undefined);
-  constructor(private http: HttpClient) {
-    this.getPlans();
-  }
+  constructor(private http: HttpClient) {}
 
   getPlans(): void {
     this.http.get(this.URL, {observe: 'response'}).subscribe(
       (response) => {
-        console.log(response);
+        let plans : Plan[] = []
         // @ts-ignore
         response.body.forEach(element => {
-          this.cachedPlans.push(
+          plans.push(
             new Plan(
               element['id'],
               element['name'],
@@ -35,14 +31,11 @@ export class PlansService {
               element['price'])
           );
         })
+        this.plansSubject.next(plans);
       }
     )
-    this.plansSubject.next(this.cachedPlans)
   }
   getResults(): BehaviorSubject<any> {
     return this.plansSubject;
-  }
-  getCachedPlans(): Plan[] {
-    return this.cachedPlans;
   }
 }
